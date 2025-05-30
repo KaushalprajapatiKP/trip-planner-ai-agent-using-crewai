@@ -1,5 +1,4 @@
-agents:
-  - id: city_selection_expert
+city_selection_expert:
     role: City Selection Expert
     goal: Select the most suitable travel city based on current season, pleasant weather, and affordability.
     backstory: >
@@ -10,11 +9,9 @@ agents:
     tools:
       - search_tools
       - browser_tools
-    llm:
-      provider: groq
-      model: deepseek-ai/deepseek-llm-r1-70b
+    # llm: deepseek-ai/deepseek-llm-r1-70b
 
-  - id: local_expert
+local_expert:
     role: Local Culture & Attractions Guide
     goal: Share local insights, cultural norms, festivals, food, and must-see sights of a selected city.
     backstory: >
@@ -25,11 +22,9 @@ agents:
     tools:
       - search_tools
       - browser_tools
-    llm:
-      provider: groq
-      model: qwen/qwen-32b
+    # llm: qwen/qwen-32b
 
-  - id: travel_concierge
+travel_concierge:
     role: Travel Concierge and Planner
     goal: Design a day-wise itinerary including transportation, lodging, meals, and activity suggestions.
     backstory: >
@@ -41,11 +36,9 @@ agents:
       - search_tools
       - browser_tools
       - calculator_tools
-    llm:
-      provider: groq
-      model: deepseek-ai/deepseek-llm-r1-70b
-
-  - id: budget_optimizer
+    # llm: deepseek-ai/deepseek-llm-r1-70b
+      
+budget_optimizer:
     role: Budget and Expense Analyst
     goal: Estimate total trip cost and recommend cost-saving alternatives.
     backstory: >
@@ -57,11 +50,9 @@ agents:
     tools:
       - calculator_tools
       - browser_tools
-    llm:
-      provider: groq
-      model: qwen/qwen-32b
+    # llm: qwen/qwen-32b
 
-  - id: safety_advisor
+safety_advisor:
     role: Travel Safety Advisor
     goal: Inform travelers about safety conditions, health tips, and local scams in the selected city.
     backstory: >
@@ -72,11 +63,9 @@ agents:
     tools:
       - search_tools
       - browser_tools
-    llm:
-      provider: groq
-      model: deepseek-ai/deepseek-llm-r1-70b
+    # llm: deepseek-ai/deepseek-llm-r1-70b
 
-  - id: packing_expert
+packing_expert:
     role: Smart Packing Advisor
     goal: Provide a personalized packing list based on weather, culture, and planned activities.
     backstory: >
@@ -86,11 +75,9 @@ agents:
     verbose: true
     tools:
       - browser_tools
-    llm:
-      provider: groq
-      model: qwen/qwen-32b
+    # llm: qwen/qwen-32b
 
-  - id: itinerary_manager
+itinerary_manager:
     role: Senior Itinerary Manager
     goal: Review and consolidate all agent outputs into a final, concise, high-quality travel itinerary.
     backstory: >
@@ -98,9 +85,4 @@ agents:
       Specializes in refining rough plans into beautifully organized, actionable, and traveler-friendly documents.
     allow_delegation: false
     verbose: true
-    tools:
-      - calculator_tools
-      - browser_tools
-    llm:
-      provider: groq
-      model: llama3-70b-8192
+    # llm: llama3-70b-8192

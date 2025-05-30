@@ -1,5 +1,4 @@
-tasks:
-  - id: identify_best_city
+identify_best_city:
     description: |
       Analyze and select the most suitable city for the upcoming trip based on:
         - Current weather forecasts
@@ -25,7 +24,7 @@ tasks:
     expected_output: A comprehensive comparison and final selection of the best travel city with costs, weather, and event info.
     agent_id: city_selection_expert
 
-  - id: gather_city_insights
+gather_city_insights:
     description: |
       As a local insider, gather rich cultural insights and local recommendations about the selected city.
       Include:
@@ -46,7 +45,7 @@ tasks:
     expected_output: A rich city guide with cultural insights, local hotspots, weather, and budget estimates.
     agent_id: local_expert
 
-  - id: create_itinerary
+create_itinerary:
     description: |
       Design a full day-by-day travel itinerary for the selected city and time range.
       Include:
@@ -70,7 +69,7 @@ tasks:
     expected_output: A fully structured Markdown travel plan with day-wise itinerary, costs, places, weather, and packing tips.
     agent_id: travel_concierge
 
-  - id: analyze_budget
+analyze_budget:
     description: |
       Estimate the total trip cost for the selected city.
       Include:
@@ -92,7 +91,7 @@ tasks:
     expected_output: A detailed cost breakdown of the trip with tips for optimizing the budget.
     agent_id: budget_optimizer
 
-  - id: evaluate_safety
+evaluate_safety:
     description: |
       Review the safety of the selected city for the given date range.
       Include:
@@ -111,7 +110,7 @@ tasks:
     expected_output: A safety guide with tips, emergency info, and risk factors for the selected city.
     agent_id: safety_advisor
 
-  - id: suggest_packing_list
+suggest_packing_list:
     description: |
       Based on the trip duration, city weather, cultural norms, and planned activities,
       suggest a compact but complete packing list.
@@ -132,7 +131,7 @@ tasks:
     expected_output: A compact and categorized packing list tailored to city weather, culture, and traveler activities.
     agent_id: packing_expert
 
-  - id: finalize_itinerary
+finalize_itinerary:
     description: |
       Review all generated information and create a polished final travel document.
       Combine insights from:

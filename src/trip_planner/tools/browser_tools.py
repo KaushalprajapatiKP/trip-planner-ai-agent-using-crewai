@@ -39,11 +39,11 @@ class BrowserTools(BaseTool):
             content = [content[i:i + 8000] for i in range(0, len(content), 8000)]
             summeries = []
 
-            llm = LLM(model=ChatGroq(model_name="groq/llama-3.1-70b-instruct"))
+            # llm = LLM(model=ChatGroq(model_name="groq/llama-3.1-70b-instruct"))
             for chunk in content:
                 agent = Agent(
                     role= "Principal Researcher",
-                    llm=llm,
+                    # llm=llm,
                     goal = "Do amazing researches and summaries based on the content you are working with. Make sure to provide a detailed summary of the content.",
                     backstory = "You are a highly skilled expert researcher with expertise in summarizing and analyzing web content. Your task is to provide detailed summaries of the content you are working with.",
                     allow_delegation=True,
@@ -52,7 +52,8 @@ class BrowserTools(BaseTool):
                 task = Task(
                     name="Analyse and Summarize the content",
                     description=f'Analyze and summarize the content below, make sure to include the most relevant information in the summary, return only the summary nothing else.\n\nCONTENT\n----------\n{chunk}',
-                    agent=agent
+                    agent=agent,
+                    expected_output="A concise summary highlighting key information from the website content chunk."
                 )
 
                 summeary = task.execute()

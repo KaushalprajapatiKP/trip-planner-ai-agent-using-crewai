@@ -1,12 +1,11 @@
-tools:
-  - id: search_tools
+search_tools:
     type: tool
     path: trip_planner.tools.search_tools.SearchTools
 
-  - id: browser_tools
+browser_tools:
     type: tool
     path: trip_planner.tools.browser_tools.BrowserTools
 
-  - id: calculator_tools
+calculator_tools:
     type: tool
     path: trip_planner.tools.calculator_tools.CalculatorTools
