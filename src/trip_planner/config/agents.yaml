@@ -6,9 +6,9 @@ city_selection_expert:
       Specializes in suggesting vacation destinations tailored to time of year and budget.
     allow_delegation: false
     verbose: true
-    tools:
-      - search_tools
-      - browser_tools
+    # tools:
+    #   - search_tool
+    #   - browser_tool
     # llm: deepseek-ai/deepseek-llm-r1-70b
 
 local_expert:
@@ -19,9 +19,9 @@ local_expert:
       local customs, cuisines, and current events.
     allow_delegation: false
     verbose: true
-    tools:
-      - search_tools
-      - browser_tools
+    # tools:
+    #   - search_tool
+    #   - browser_tool
     # llm: qwen/qwen-32b
 
 travel_concierge:
@@ -32,10 +32,10 @@ travel_concierge:
       Excels in planning logistics, minimizing stress, and optimizing daily travel flow.
     allow_delegation: false
     verbose: true
-    tools:
-      - search_tools
-      - browser_tools
-      - calculator_tools
+    # tools:
+    #   - search_tool
+    #   - browser_tool
+    #   - calculator_tool
     # llm: deepseek-ai/deepseek-llm-r1-70b
       
 budget_optimizer:
@@ -47,9 +47,9 @@ budget_optimizer:
       calculates per-day expenses, and offers cost-effective choices.
     allow_delegation: false
     verbose: true
-    tools:
-      - calculator_tools
-      - browser_tools
+    # tools:
+    #   - calculator_tool
+    #   - browser_tool
     # llm: qwen/qwen-32b
 
 safety_advisor:
@@ -60,9 +60,9 @@ safety_advisor:
       Shares real-time advisories, common issues, emergency contacts, and safety ratings.
     allow_delegation: false
     verbose: true
-    tools:
-      - search_tools
-      - browser_tools
+    # tools:
+    #   - search_tool
+    #   - browser_tool
     # llm: deepseek-ai/deepseek-llm-r1-70b
 
 packing_expert:
@@ -73,8 +73,8 @@ packing_expert:
       balancing necessity with convenience. Especially skilled in making packing light yet complete.
     allow_delegation: false
     verbose: true
-    tools:
-      - browser_tools
+    # tools:
+    #   - browser_tool
     # llm: qwen/qwen-32b
 
 itinerary_manager:
