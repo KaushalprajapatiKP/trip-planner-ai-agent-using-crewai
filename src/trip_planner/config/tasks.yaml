@@ -1,5 +1,5 @@
 identify_best_city:
-  description: |
+  description: >
     Analyze and select the most suitable city for the upcoming trip based on:
     - Current weather forecasts
     - Seasonal festivals or major events
@@ -15,18 +15,19 @@ identify_best_city:
     - Highlights of upcoming events or festivals
     - High-level cost comparison
 
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Traveling from: {origin}
     City Options: {cities}
     Trip Date: {date_range}
     Traveler Interests: {interests}
-  expected_output: A comprehensive comparison and final selection of the best travel city with costs, weather, and event info.
+  expected_output: >
+    A comprehensive comparison and final selection of the best travel city
+    with costs, weather, and event info.
   agent_id: city_selection_expert
 
 gather_city_insights:
-  description: |
-    As a local insider, gather rich cultural insights and local recommendations about the selected city.
+  description: >
+    As a local insider, gather rich cultural insights and local recommendations
+    about the selected city.
     Include:
     - Major landmarks and tourist spots
     - Hidden gems known mostly to locals
@@ -36,17 +37,16 @@ gather_city_insights:
     - Approximate local costs
     - Weather patterns during the trip dates
 
-    Deliver a comprehensive guide that feels personal and insightful.
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Trip Date: {date_range}
     Traveling from: {origin}
     Traveler Interests: {interests}
-  expected_output: A rich city guide with cultural insights, local hotspots, weather, and budget estimates.
+  expected_output: >
+    A rich city guide with cultural insights, local hotspots, weather,
+    and budget estimates.
   agent_id: local_expert
 
 create_itinerary:
-  description: |
+  description: >
     Design a full day-by-day travel itinerary for the selected city and time range.
     Include:
     - Real restaurants, cafes, and food markets to visit
@@ -61,16 +61,16 @@ create_itinerary:
     Output must be a beautifully formatted Markdown document for the traveler.
     Include: arrival/departure times, daily plans, budget per day, and local tips.
 
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Trip Date: {date_range}
     Traveling from: {origin}
     Traveler Interests: {interests}
-  expected_output: A fully structured Markdown travel plan with day-wise itinerary, costs, places, weather, and packing tips.
+  expected_output: >
+    A fully structured Markdown travel plan with day-wise itinerary,
+    costs, places, weather, and packing tips.
   agent_id: travel_concierge
 
 analyze_budget:
-  description: |
+  description: >
     Estimate the total trip cost for the selected city.
     Include:
     - Roundtrip flight cost from {origin}
@@ -83,16 +83,15 @@ analyze_budget:
 
     Suggest at least 2 ways to reduce total cost without compromising experience.
 
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Trip Date: {date_range}
     Traveling from: {origin}
     Traveler Interests: {interests}
-  expected_output: A detailed cost breakdown of the trip with tips for optimizing the budget.
+  expected_output: >
+    A detailed cost breakdown of the trip with tips for optimizing the budget.
   agent_id: budget_optimizer
 
 evaluate_safety:
-  description: |
+  description: >
     Review the safety of the selected city for the given date range.
     Include:
     - Any travel advisories (health, civil unrest, etc.)
@@ -103,15 +102,14 @@ evaluate_safety:
 
     Provide tips for staying safe and avoiding problems while still having fun.
 
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Trip Date: {date_range}
     City: {destination}
-  expected_output: A safety guide with tips, emergency info, and risk factors for the selected city.
+  expected_output: >
+    A safety guide with tips, emergency info, and risk factors for the selected city.
   agent_id: safety_advisor
 
 suggest_packing_list:
-  description: |
+  description: >
     Based on the trip duration, city weather, cultural norms, and planned activities,
     suggest a compact but complete packing list.
 
@@ -124,15 +122,15 @@ suggest_packing_list:
 
     Keep it minimalist, organized by category, and personalized to traveler interests.
 
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Trip Date: {date_range}
     Destination: {destination}
-  expected_output: A compact and categorized packing list tailored to city weather, culture, and traveler activities.
+  expected_output: >
+    A compact and categorized packing list tailored to city weather,
+    culture, and traveler activities.
   agent_id: packing_expert
 
 finalize_itinerary:
-  description: |
+  description: >
     Review all generated information and create a polished final travel document.
     Combine insights from:
     - City selection expert
@@ -152,9 +150,8 @@ finalize_itinerary:
 
     Make it easy to read, printable, and exciting for the traveler.
 
-    If you do your BEST WORK, I'll tip you $100 and grant you any wish you want!
-
     Final City: {destination}
     Trip Date: {date_range}
-  expected_output: A refined, polished Markdown travel guide document merging all agent inputs into one.
+  expected_output: >
+    A refined, polished Markdown travel guide document merging all agent inputs into one.
   agent_id: itinerary_manager
