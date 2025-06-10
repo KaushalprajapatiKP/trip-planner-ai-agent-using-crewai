@@ -1,56 +1,145 @@
-# {{crew_name}} Crew
+# Trip Planner AI Agent using CrewAI
 
-Welcome to the {{crew_name}} Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+This project is a fully-featured **AI-powered Travel Planner** built using the **CrewAI** framework. It leverages agents and tasks to collaborate and generate a comprehensive travel itinerary.
 
-## Installation
+---
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+## 📁 Directory Structure
 
-First, if you haven't already, install uv:
-
-```bash
-pip install uv
+```
+travel_agent_flow/
+├── output/
+│   └── final_travel_document.md        # Generated final itinerary output
+│
+├── src/travel_agent/
+│   ├── main.py                        # Main entry point for running the flow
+│   ├── tools/
+│   │   ├── search_tools.py            # Search related tools for agents
+│   │   ├── browser_tools.py           # Browser related tools for agents
+│   │   └── calculator_tools.py        # Budget calculations, etc.
+│   │
+│   └── crews/travel_crew/
+│       ├── config/
+│       │   ├── agents.yaml            # YAML file defining all agents
+│       │   └── tasks.yaml             # YAML file defining all tasks
+│       │
+│       └── travel_crew.py            # Crew and flow definitions
+│
+├── README.md                          # Documentation
+├── LICENSE
+├── .gitignore
+├── pyproject.toml                     # Project dependencies
+├── uv.lock                            # Locked dependency versions by uv
 ```
 
-Next, navigate to your project directory and install the dependencies:
+---
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
+## ⚙️ Setup Instructions
 
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/guide_creator_flow/config/agents.yaml` to define your agents
-- Modify `src/guide_creator_flow/config/tasks.yaml` to define your tasks
-- Modify `src/guide_creator_flow/crew.py` to add your own logic, tools and specific args
-- Modify `src/guide_creator_flow/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your flow and begin execution, run this from the root folder of your project:
+### 1️⃣ Install Dependencies
 
 ```bash
-crewai run
+uv sync
 ```
 
-This command initializes the guide_creator_flow Flow as defined in your configuration.
+### 2️⃣ Run the Flow
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+```bash
+uv run src.travel_agent.main.py
+```
 
-## Understanding Your Crew
+### 3️⃣ Output
 
-The guide_creator_flow Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+The final travel itinerary will be saved at:
 
-## Support
+```
+output/final_travel_document.md
+```
 
-For support, questions, or feedback regarding the {{crew_name}} Crew or crewAI.
+---
 
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+## 🧑‍💻 How It Works
 
-Let's create wonders together with the power and simplicity of crewAI.
+This project is built on **CrewAI**, a powerful framework for orchestrating multiple AI agents in flows.
+
+### 🔸 Agents
+
+Agents are defined in `agents.yaml`. Each agent has:
+
+* **Role**: Defines what expertise the agent brings.
+* **Goal**: The objective the agent focuses on.
+* **Backstory**: Provides narrative context to help guide the agent's responses.
+
+Example agent definition in YAML:
+
+```yaml
+travel_planner:
+  role: "Expert Travel Consultant"
+  goal: "Design optimal travel plans tailored to user preferences"
+  backstory: "Has 15 years of experience planning custom trips for adventure seekers and families."
+```
+
+### 🔸 Tasks
+
+Tasks are discrete units of work that agents execute. They are defined in `tasks.yaml` with:
+
+* `description`: Task details (supports context variables).
+* `expected_output`: Defines what output is expected.
+* `agent_id`: Links the task to a specific agent.
+
+Example task definition:
+
+```yaml
+identify_best_city:
+  description: "Select the best city to visit from: {cities}"
+  expected_output: "### Chosen City: ..."
+  agent_id: "travel_planner"
+```
+
+### 🔸 Crews
+
+A Crew is a collection of agents working together to complete one or more tasks sequentially or in parallel.
+
+* Defined dynamically in `travel_crew.py`.
+* Responsible for building agents from YAML and executing workflows.
+
+### 🔸 Flows
+
+Flows define how tasks are executed **sequentially** with dependencies on previous tasks’ results.
+
+Example sequence:
+
+```
+identify_best_city → gather_city_insights → create_itinerary → analyze_budget → evaluate_safety → suggest_packing_list → finalize_itinerary
+```
+
+---
+
+## 🔧 Tools
+
+Custom tools help agents fetch real data and make smarter decisions:
+
+* `search_tools.py` – Used for searching travel recommendations.
+* `browser_tools.py` – Simulates browser activities if needed.
+* `calculator_tools.py` – Helps calculate budgets, distances, etc.
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 🌍 Future Enhancements
+
+* 🌐 Integrate real APIs (e.g., Skyscanner, Google Travel) for live data.
+* 🏷️ UI layer with React for input and visualization.
+* 📦 Dockerized setup for easy deployment.
+* 💬 Multi-language support.
+
+---
+
+For questions, feel free to open issues or contribute!
+
+Happy travels ✈️🏝️
