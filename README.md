@@ -33,6 +33,9 @@ travel_agent_flow/
 ```
 
 ---
+## Flow of Agent 
+
+<img width="1212" alt="Screenshot 2025-06-10 at 11 53 14 AM" src="https://github.com/user-attachments/assets/42cbbb07-1a0e-4f61-8b46-0ca0d084e991" />
 
 ## ⚙️ Setup Instructions
 
