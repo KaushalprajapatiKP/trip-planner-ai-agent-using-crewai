@@ -13,6 +13,8 @@ dependencies = [
     "langchain-core",
     "langchain-groq",
     "requests>=2",
+    "langchain-google-genai",
+    "google-generativeai"
 ]
 
 [project.scripts]

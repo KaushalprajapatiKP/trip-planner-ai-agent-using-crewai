@@ -19,7 +19,7 @@ class BrowserTools(BaseTool):
     name: str = "Scrape Website content"
     description: str = "Useful for scraping the content of a website and returning its HTML elements in JSON format."
     args_schema: type[BaseModel] = WebsiteInput
-
+    
     def _run(self, website: str) -> str:
         try:
             url = f"https://chrome.browserless.io/content?token={os.environ['BROWSERLESS_API_KEY']}"
